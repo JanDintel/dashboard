@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     content = params[:message][:content]
 
-    if content
+    if content.present?
       redis.pipelined do
         redis.lpush 'messages', content
         redis.publish 'messages.create', content
