@@ -1,0 +1,21 @@
+%h1 Messages
+
+= form_for :message, url: message_path, remote: true do |form|
+  = form.text_field :content
+  = form.submit 'Post'
+
+%h2 Listing all messages
+
+%table#messages
+  %tr
+    %th Index
+    %th Content
+
+  - if @messages.present?
+    - @messages.each.with_index(1) do |message, index|
+      %tr
+        %td= index
+        %td= message
+
+  - else
+    %p No messages
