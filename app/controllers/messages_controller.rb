@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = redis.lrange 'messages', -100, 100
+    @messages = redis.lrange 'messages', -150, 150
   end
 
   def events
