@@ -5,5 +5,7 @@ Dashboard::Application.routes.draw do
     collection { get :events }
   end
 
-  root 'messages#index'
+  get '/dashboard', to: 'dashboard#index'
+
+  root 'dashboard#index'
 end
